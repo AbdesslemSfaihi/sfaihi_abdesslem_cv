@@ -1,0 +1,11 @@
+{
+  "helloWorld":"Hello World",
+  "hello":"Hello",
+  "search":"Search",
+  "areYouSureToDeleteThisItem":"Are you sure to delete this Item?",
+  "welcome":"Welcome",
+  "selectLanguageOfYourChoice":"Select langauge of your choice",
+  "delete":"Delete",
+  "yes":"Yes",
+  "no":"No"
+}
