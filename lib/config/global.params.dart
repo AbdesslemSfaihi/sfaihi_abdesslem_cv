@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class GlobalParams {
   static List<Map<String, dynamic>> menus = [
     {
-      "title": "Acceuil",
+      "title": "Home",
       "icon": const Icon(
         Icons.home_filled,
         color: Colors.indigo,
@@ -19,12 +19,12 @@ class GlobalParams {
       "route": "/meteo"
     },
     {
-      "title": "Gallerie",
+      "title": "Hobbies",
       "icon": const Icon(
-        Icons.image_rounded,
+        Icons.sports_esports_rounded,
         color: Colors.indigo,
       ),
-      "route": "/gallerie"
+      "route": "/hobby"
     },
     {
       "title": "Pays",

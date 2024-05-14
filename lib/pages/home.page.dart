@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sfaihi_abdesslem_cv/pages/contact.page.dart';
 import 'package:sfaihi_abdesslem_cv/pages/pays.page.dart';
+import 'package:sfaihi_abdesslem_cv/pages/project_images_page.dart';
 import 'package:sfaihi_abdesslem_cv/theme/theme_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../menu/drawer.widget.dart';
@@ -18,10 +19,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme
-          .of(context)
-          .colorScheme
-          .background,
+      backgroundColor: Theme.of(context).colorScheme.background,
       drawer: const MyDrawer(),
       appBar: AppBar(
         leading: Builder(
@@ -56,7 +54,7 @@ class HomePage extends StatelessWidget {
               color: Colors.black54,
             ),
             onPressed: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme(context);
             },
           )
         ],
@@ -71,11 +69,11 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               decoration: const BoxDecoration(color: Colors.white24),
               child: const Text(
-                  "Over 8+ years of experience and web development and 5+ years of experience in mobile applications development "),
+                  "I am Sfaihi Abdesslem, a second-year Software Engineering student. With a passion for innovative problem-solving and a keen eye for detail, I aim to leverage my programming skills to contribute effectively to dynamic projects and teams."),
             ),
-            _buildTitle("Skills"),
+            _buildTitleWithIcon("Skills", Icons.star),
             const SizedBox(height: 10.0),
-            _buildSkillRow("Wordpress", 0.75),
+            _buildSkillRow("Angular", 0.75),
             const SizedBox(height: 5.0),
             _buildSkillRow("Laravel", 0.6),
             const SizedBox(height: 5.0),
@@ -83,89 +81,128 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 5.0),
             _buildSkillRow("Flutter", 0.5),
             const SizedBox(height: 30.0),
-            _buildTitle("Experience"),
+            _buildTitleWithIcon("Experience", Icons.work),
             _buildExperienceRow(
-                company: "GID Nepal",
-                position: "Wordpress Developer",
-                duration: "2010 - 2012"),
+              company: "All Soft Multimedia “ASM“",
+              position: "Laravel / Angular",
+              duration: "2021",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715693690/asm_jewyw9.webp","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715697081/gestion-deparc-visual-planning_r4xo5o.jpg"],
+              context: context,
+            ),
             _buildExperienceRow(
-                company: "Lohani Tech",
-                position: "Laravel Developer",
-                duration: "2012 - 2015"),
+              company: "Centres de Carrières et de Certification des Compétences “4C” ",
+              position: "Symfony ",
+              duration: "2022",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715694035/1_nhlv97.png","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715697309/Image1_vwl6us.png"],
+              context: context,
+            ),
             _buildExperienceRow(
-                company: "Popup Bits Pvt. Ltd.",
-                position: "Web Developer",
-                duration: "2015 - 2018"),
+              company: "Class Project",
+              position: ".Net",
+              duration: "2023",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715694628/Image1_ts5i93.png","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715696438/Image12_jjrsnq.png"],
+              context: context,
+            ),
             _buildExperienceRow(
-                company: "Popup Bits Pvt. Ltd.",
-                position: "Flutter Developer",
-                duration: "2018 - Current"),
+              company: "Errors Visualisation PFA",
+              position: ".Net",
+              duration: "2023",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715695568/t%C3%A9l%C3%A9chargement_afhvzy.png","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715695488/1_yurain.png","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715695567/5_rg7a4u.png"],
+              context: context,
+            ),
             const SizedBox(height: 20.0),
-            _buildTitle("Etude"),
+            _buildTitleWithIcon("Etude", Icons.school),
             const SizedBox(height: 5.0),
             _buildExperienceRow(
-                company: "Lycée 15 Novembre 1955",
-                position: "(Baccalauréat Science Experimentales",
-                duration: "2016 - 2019"),
-            _buildExperienceRow(
-                company: "Institut Supérieur d'Informatique et de Multimédia de Sfax",
-                position: "Licence Science de l'informatique",
-                duration: "2019 - 2022"),
-            _buildExperienceRow(
-                company: "Institut International de Technologie",
-                position: "Ingénierie en Informatique",
-                duration: "2022 - 2025"),
-            const SizedBox(height: 20.0),
-            _buildTitle("Contact"),
-            const SizedBox(height: 5.0),
-            const Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(
-                  Icons.mail,
-                  color: Colors.black54,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  "abdesslemsfaihi@gmail.com",
-                  style: TextStyle(fontSize: 17.0),
-                ),
-              ],
+              company: "Lycée 15 Novembre 1955",
+              position: "Baccalauréat Science Experimentales",
+              duration: "2016 - 2019",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691844/7ay_appbre.jpg"],
+              context: context,
             ),
-            const SizedBox(height: 10.0),
-            const Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(
-                  Icons.phone,
-                  color: Colors.black54,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  "+216 29348710",
-                  style: TextStyle(fontSize: 17.0),
-                ),
-              ],
+            _buildExperienceRow(
+              company: "Institut Supérieur d'Informatique et de Multimédia de Sfax",
+              position: "Licence Science de l'informatique",
+              duration: "2019 - 2022",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691845/isims_mhgoat.jpg"],
+              context: context,
             ),
-            _buildSocialsRow(),
+            _buildExperienceRow(
+              company: "Institut International de Technologie",
+              position: "Ingénierie en Informatique",
+              duration: "2022 - 2025",
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691845/iit_hbpxf6.webp"],
+              context: context,
+            ),
             const SizedBox(height: 20.0),
+            _buildContactSection(context), // Move this line to the end of the children list
           ],
         ),
       ),
     );
   }
 
+  Widget _buildContactSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _buildTitleWithIcon("Contact", Icons.contact_mail),
+        const SizedBox(height: 0.0),
+        ListTile(
+          leading: Icon(
+            Icons.mail,
+            color: Colors.black54,
+          ),
+          title: Text(
+            "abdesslemsfaihi@gmail.com",
+            style: TextStyle(fontSize: 17.0),
+          ),
+          onTap: () async {
+            const emailAddress = 'abdesslemsfaihi@gmail.com';
+            final Uri emailLaunchUri = Uri(
+              scheme: 'mailto',
+              path: emailAddress,
+            );
+            if (await canLaunch(emailLaunchUri.toString())) {
+              await launch(emailLaunchUri.toString());
+            } else {
+              throw 'Could not launch $emailLaunchUri';
+            }
+          },
+        ),
+        const SizedBox(height: 00.0),
+        ListTile(
+          leading: Icon(
+            Icons.phone,
+            color: Colors.black54,
+          ),
+          title: Text(
+            "+216 29348710",
+            style: TextStyle(fontSize: 17.0),
+          ),
+          onTap: () async {
+            const phoneNumber = '+21629348710';
+            final Uri phoneCallUri = Uri(
+              scheme: 'tel',
+              path: phoneNumber,
+            );
+            if (await canLaunch(phoneCallUri.toString())) {
+              await launch(phoneCallUri.toString());
+            } else {
+              throw 'Could not launch $phoneCallUri';
+            }
+          },
+        ),
+        _buildSocialsRow(),
+        const SizedBox(height: 10.0),
+      ],
+    );
+  }
+
   Row _buildSocialsRow() {
     return Row(
       children: <Widget>[
-        const SizedBox(width: 20.0),
-        IconButton(
-          color: Colors.indigo,
-          icon: const Icon(FontAwesomeIcons.facebookF),
-          onPressed: () {
-            _launchURL("https://facebook.com/Abdesslem Sfaihi");
-          },
-        ),
+        const SizedBox(width: 10.0),
         const SizedBox(width: 5.0),
         IconButton(
           color: Colors.indigo,
@@ -189,30 +226,42 @@ class HomePage extends StatelessWidget {
   }
 
   _launchURL(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    if (await canLaunch(url)) {
+      await launch(url);
     } else {
       throw 'Could not launch $url';
     }
   }
 
-  ListTile _buildExperienceRow(
-      {required String company, String? position, String? duration}) {
+  ListTile _buildExperienceRow({
+    required String company,
+    String? position,
+    String? duration,
+    required List<String> imageUrls, // Add this parameter for image URL
+    required BuildContext context,
+  }) {
     return ListTile(
-      leading: const Padding(
-        padding: EdgeInsets.only(top: 8.0, left: 20.0),
-        child: Icon(
-          FontAwesomeIcons.solidCircle,
-          size: 12.0,
-          color: Colors.black54,
-        ),
-      ),
       title: Text(
         company,
         style: const TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold),
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       subtitle: Text("$position ($duration)"),
+      onTap: () {
+        // Navigate to ProjectImagesPage when an experience is clicked
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProjectImagesPage(
+              companyName: company,
+              projectDescription: position ?? '',
+              imageUrls: imageUrls, // Pass the list of image URLs to ProjectImagesPage
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -239,15 +288,24 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildTitle(String title) {
+  Widget _buildTitleWithIcon(String title, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            title.toUpperCase(),
-            style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Icon(
+                iconData,
+                color: Colors.black54,
+              ),
+              SizedBox(width: 8),
+              Text(
+                title.toUpperCase(),
+                style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           const Divider(
             color: Colors.black54,
@@ -256,8 +314,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-
 
   Row _buildHeader(BuildContext context) {
     return Row(
