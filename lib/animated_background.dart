@@ -8,13 +8,14 @@ class AnimatedBackground extends StatefulWidget {
   final double bubbleSize;
   final Color bubbleColor; // New parameter for bubble size
 
-  AnimatedBackground({
+  const AnimatedBackground({
+    Key? key,
     required this.child,
     required this.bubblesCount,
     required this.backgroundColor,
     required this.bubbleSize,
     required this.bubbleColor,
-  });
+  }) : super(key: key);
 
   @override
   _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
@@ -30,7 +31,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
   }
 
@@ -44,8 +45,9 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
           Random().nextDouble() * MediaQuery.of(context).size.width,
           Random().nextDouble() * MediaQuery.of(context).size.height,
         ),
-            radius: widget.bubbleSize, // Set the bubble size
-            speed: Random().nextDouble() * 50 + 20,
+        radius: widget.bubbleSize, // Set the bubble size
+        speed: Random().nextDouble() * 50 + 20,
+        borderColor: Colors.white, // Specify border color
       ),
     );
 
@@ -67,17 +69,36 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
           child: widget.child,
         ),
         ..._bubbles.map((bubble) {
-          return Positioned(
-            left: bubble.position.dx,
-            top: bubble.position.dy,
-            child: Container(
-              width: bubble.radius * 2,
-              height: bubble.radius * 2,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
+          return AnimatedBuilder(
+            animation: _controller,
+            builder: (context, child) {
+              bubble.position = Offset(
+                bubble.position.dx,
+                bubble.position.dy + (bubble.speed * _controller.value),
+              );
+              if (bubble.position.dy > MediaQuery.of(context).size.height +
+                  bubble.radius * 2) {
+                bubble.position = Offset(
+                  Random().nextDouble() * MediaQuery.of(context).size.width,
+                  -bubble.radius * 2,
+                );
+              }
+              return Positioned(
+                left: bubble.position.dx,
+                top: bubble.position.dy,
+                child: Container(
+                  width: bubble.radius * 2,
+                  height: bubble.radius * 2,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: bubble.borderColor, // Use border color
+                      width: 2, // Adjust border width as needed
+                    ),
+                  ),
+                ),
+              );
+            },
           );
         }).toList(),
       ],
@@ -85,15 +106,16 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   }
 }
 
-
 class Bubble {
-  Offset position;
-  double radius;
-  double speed;
+  late Offset position;
+  late double radius;
+  late double speed;
+  late Color borderColor; // Add a border color parameter
 
   Bubble({
     required this.position,
     required this.radius,
     required this.speed,
+    required this.borderColor, // Initialize border color
   });
 }

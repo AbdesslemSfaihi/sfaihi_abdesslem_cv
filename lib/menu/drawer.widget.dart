@@ -13,7 +13,7 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(50),
+            padding: const EdgeInsets.all(50),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -26,11 +26,11 @@ class MyDrawer extends StatelessWidget {
             ),
             child: Column(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 80,
                   backgroundImage: AssetImage('images/profil.jpg'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   "Sfaihi Abdesslem",
                   style: TextStyle(

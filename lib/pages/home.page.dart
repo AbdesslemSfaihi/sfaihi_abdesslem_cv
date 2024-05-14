@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sfaihi_abdesslem_cv/pages/contact.page.dart';
-import 'package:sfaihi_abdesslem_cv/pages/pays.page.dart';
+import 'package:sfaihi_abdesslem_cv/pages/location.page.dart';
 import 'package:sfaihi_abdesslem_cv/pages/project_images_page.dart';
 import 'package:sfaihi_abdesslem_cv/theme/theme_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ContactPage()),
+                MaterialPageRoute(builder: (context) => const ContactPage()),
               );
             },
           ),
@@ -149,11 +149,11 @@ class HomePage extends StatelessWidget {
         _buildTitleWithIcon("Contact", Icons.contact_mail),
         const SizedBox(height: 0.0),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.mail,
             color: Colors.black54,
           ),
-          title: Text(
+          title: const Text(
             "abdesslemsfaihi@gmail.com",
             style: TextStyle(fontSize: 17.0),
           ),
@@ -172,11 +172,11 @@ class HomePage extends StatelessWidget {
         ),
         const SizedBox(height: 00.0),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.phone,
             color: Colors.black54,
           ),
-          title: Text(
+          title: const Text(
             "+216 29348710",
             style: TextStyle(fontSize: 17.0),
           ),
@@ -300,7 +300,7 @@ class HomePage extends StatelessWidget {
                 iconData,
                 color: Colors.black54,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 title.toUpperCase(),
                 style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -331,21 +331,21 @@ class HomePage extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
+            const Text(
               "Abdesslem Sfaihi",
               style: TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10.0),
-            Text("Full Stack Developer", style: TextStyle(fontSize: 16.0),),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 10.0),
+            const Text("Full Stack Developer", style: TextStyle(fontSize: 16.0),),
+            const SizedBox(height: 5.0),
             InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MapPage()),
+                  MaterialPageRoute(builder: (context) => const MapPage()),
                 );
               },
-              child: Row(
+              child: const Row(
                 children: <Widget>[
                   Icon(
                     FontAwesomeIcons.mapLocationDot,

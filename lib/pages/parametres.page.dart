@@ -43,7 +43,7 @@ class ParametresPage extends StatelessWidget {
                       width: 45,
                       height: 45,
                       margin: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),

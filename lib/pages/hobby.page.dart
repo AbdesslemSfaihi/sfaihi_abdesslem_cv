@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class HobbiesPage extends StatelessWidget {
+  const HobbiesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Hobbies'),
+        title: const Text('My Hobbies'),
       ),
       body: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           HobbyCard(
             hobby: 'Sports',
             image: 'images/cal.png',
@@ -31,7 +33,7 @@ class HobbyCard extends StatelessWidget {
   final String hobby;
   final String image;
 
-  HobbyCard({required this.hobby, required this.image});
+  const HobbyCard({super.key, required this.hobby, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class HobbyCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               hobby,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),

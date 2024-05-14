@@ -17,7 +17,7 @@ class ContactPage extends StatelessWidget {
       await launch(messageUri.toString());
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Could not send message'),
         ),
       );
@@ -44,8 +44,7 @@ class ContactPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () => _sendDirectMessage(context),
               style: ElevatedButton.styleFrom(
-                primary: buttonColor,
-                onPrimary: buttonTextColor,
+                foregroundColor: buttonTextColor, backgroundColor: buttonColor,
               ),
               child: const Text('Send me a message'),
             ),

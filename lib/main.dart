@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sfaihi_abdesslem_cv/pages/home.page.dart';
 import 'package:sfaihi_abdesslem_cv/theme/theme_provider.dart';
 import 'package:sfaihi_abdesslem_cv/animated_background.dart';
-import '../pages/home.page.dart';
-import '../pages/meteo.page.dart';
 import '../pages/contact.page.dart';
-import '../pages/gallerie.page.dart';
+import '../pages/hobby.page.dart';
 import '../pages/parametres.page.dart';
-import '../pages/pays.page.dart';
-import '../pages/project_images_page.dart';
+import '../pages/location.page.dart';
 
 void main() {
   runApp(
@@ -28,9 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final routes = {
       '/home': (context) => HomePage(),
-      '/meteo': (context) => MeteoPage(),
       '/contact': (context) => const ContactPage(),
-      '/hobby': (context) => HobbiesPage(),
+      '/hobby': (context) => const HobbiesPage(),
       '/parametres': (context) => const ParametresPage(),
       '/pays': (context) => const MapPage(),
     };
@@ -44,11 +39,11 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             // Show the AnimatedBackground with SplashScreen on top
             return AnimatedBackground(
-              child: SplashScreen(),
               bubblesCount: 10,
               backgroundColor: Colors.grey,
-              bubbleSize: 15,
+              bubbleSize: 20,
               bubbleColor: Colors.white10.withOpacity(0.5),
+              child: const SplashScreen(),
             );
           } else {
             // Once the app has loaded, return a Consumer widget
@@ -71,9 +66,11 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.grey, // Choose your preferred background color
       body: Center(
         child: Column(

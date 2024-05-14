@@ -6,7 +6,7 @@ class ProjectImagesPage extends StatelessWidget {
   final String projectDescription;
   final List<String> imageUrls; // Add imageUrl as a field
 
-  ProjectImagesPage({
+  const ProjectImagesPage({super.key, 
     required this.companyName,
     required this.projectDescription,
     required this.imageUrls, // Add imageUrl to the constructor
@@ -20,16 +20,16 @@ class ProjectImagesPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
-            '$projectDescription',
-            style: TextStyle(
+            projectDescription,
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           // Use CarouselSlider to display images in a carousel
           CarouselSlider(
             options: CarouselOptions(
@@ -40,8 +40,8 @@ class ProjectImagesPage extends StatelessWidget {
               enableInfiniteScroll: true,
               reverse: false,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
-              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              autoPlayInterval: const Duration(seconds: 3),
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal,
@@ -66,17 +66,16 @@ class ProjectImagesPage extends StatelessWidget {
               );
             }).toList(),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               // Navigate back to the previous screen
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.blue, // Change the button's background color
-              onPrimary: Colors.white, // Change the button's text color
+              foregroundColor: Colors.white, backgroundColor: Colors.blue, // Change the button's text color
             ),
-            child: Text(
+            child: const Text(
               'Back to Home',
               style: TextStyle(fontSize: 16),
             ),

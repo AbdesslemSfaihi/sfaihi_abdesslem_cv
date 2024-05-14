@@ -11,14 +11,6 @@ class GlobalParams {
       "route": "/home"
     },
     {
-      "title": "Météo",
-      "icon": const Icon(
-        Icons.sunny_snowing,
-        color: Colors.indigo,
-      ),
-      "route": "/meteo"
-    },
-    {
       "title": "Hobbies",
       "icon": const Icon(
         Icons.sports_esports_rounded,
@@ -27,7 +19,7 @@ class GlobalParams {
       "route": "/hobby"
     },
     {
-      "title": "Pays",
+      "title": "My Location",
       "icon": const Icon(
         Icons.maps_home_work_rounded,
         color: Colors.indigo,
@@ -53,7 +45,6 @@ class GlobalParams {
   ];
 
   static List<Map<String, dynamic>> accueil = [
-    {"title": "images/meteo.png", "route": "/meteo"},
     {"title": "images/gallerie.png", "route": "/gallerie"},
     {"title": "images/pays.png", "route": "/pays"},
     {"title": "images/contact.png", "route": "/contact"},
