@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
         future: _loadApp(context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            // Show the AnimatedBackground with SplashScreen on top
             return AnimatedBackground(
               bubblesCount: 10,
               backgroundColor: Colors.grey,
@@ -46,7 +45,6 @@ class MyApp extends StatelessWidget {
               child: const SplashScreen(),
             );
           } else {
-            // Once the app has loaded, return a Consumer widget
             return Consumer<ThemeProvider>(
               builder: (context, themeProvider, _) => HomePage(),
             );
@@ -59,9 +57,7 @@ class MyApp extends StatelessWidget {
   }
 
   Future<void> _loadApp(BuildContext context) async {
-    // Add a delay of 3 seconds before completing the Future
     await Future.delayed(const Duration(seconds: 5));
-    // Load any initialization tasks here
   }
 }
 
@@ -71,7 +67,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.grey, // Choose your preferred background color
+      backgroundColor: Colors.grey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -79,10 +75,10 @@ class SplashScreen extends StatelessWidget {
             Text(
               "Welcome to My CV Application",
               style: TextStyle(
-                color: Colors.white, // Change the text color to blue
+                color: Colors.white,
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Roboto', // Change the font family to Roboto
+                fontFamily: 'Roboto',
               ),
             ),
             SizedBox(height: 20.0),

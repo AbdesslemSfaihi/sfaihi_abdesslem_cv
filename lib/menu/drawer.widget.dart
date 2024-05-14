@@ -13,7 +13,7 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(50),
+            padding: const EdgeInsets.all(40),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -34,7 +34,7 @@ class MyDrawer extends StatelessWidget {
                 Text(
                   "Sfaihi Abdesslem",
                   style: TextStyle(
-                    color: isDarkMode ? Colors.white : Colors.black, // Adjust text color based on mode
+                    color: isDarkMode ? Colors.white : Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -48,10 +48,10 @@ class MyDrawer extends StatelessWidget {
                 item['title'] as String,
                 style: TextStyle(
                   fontSize: 16,
-                  color: isDarkMode ? Colors.white : Colors.black, // Adjust text color based on mode
+                  color: isDarkMode ? Colors.white : Colors.black,
                 ),
               ),
-              leading: item['icon'] as Widget, // Use item['icon'] directly
+              leading: item['icon'] as Widget,
               onTap: () async {
                 Navigator.pushNamed(context, item['route'] as String);
               },

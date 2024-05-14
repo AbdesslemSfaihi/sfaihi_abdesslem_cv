@@ -10,6 +10,8 @@ import 'package:sfaihi_abdesslem_cv/assets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'certificate.page.dart';
+
 class HomePage extends StatelessWidget {
   late SharedPreferences prefs;
   static const String path = "lib/src/pages/home.page.dart";
@@ -73,13 +75,15 @@ class HomePage extends StatelessWidget {
             ),
             _buildTitleWithIcon("Skills", Icons.star),
             const SizedBox(height: 10.0),
-            _buildSkillRow("Angular", 0.75),
+            _buildSkillRow("Flutter", 0.7),
+            const SizedBox(height: 10.0),
+            _buildSkillRow("Vue Js", 0.8),
             const SizedBox(height: 5.0),
-            _buildSkillRow("Laravel", 0.6),
+            _buildSkillRow("Laravel", 0.8),
             const SizedBox(height: 5.0),
             _buildSkillRow("React JS", 0.65),
             const SizedBox(height: 5.0),
-            _buildSkillRow("Flutter", 0.5),
+            _buildSkillRow("Angular", 0.6),
             const SizedBox(height: 30.0),
             _buildTitleWithIcon("Experience", Icons.work),
             _buildExperienceRow(
@@ -117,14 +121,14 @@ class HomePage extends StatelessWidget {
               company: "Lycée 15 Novembre 1955",
               position: "Baccalauréat Science Experimentales",
               duration: "2016 - 2019",
-              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691844/7ay_appbre.jpg"],
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691844/7ay_appbre.jpg","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715702343/bacc_o5ukwp.png"],
               context: context,
             ),
             _buildExperienceRow(
               company: "Institut Supérieur d'Informatique et de Multimédia de Sfax",
               position: "Licence Science de l'informatique",
               duration: "2019 - 2022",
-              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691845/isims_mhgoat.jpg"],
+              imageUrls: ["https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715691845/isims_mhgoat.jpg","https://res.cloudinary.com/dc5wcwmzq/image/upload/v1715702359/lic_chdljm.png"],
               context: context,
             ),
             _buildExperienceRow(
@@ -135,12 +139,46 @@ class HomePage extends StatelessWidget {
               context: context,
             ),
             const SizedBox(height: 20.0),
-            _buildContactSection(context), // Move this line to the end of the children list
+            _buildCertificatesSection(context),
+            const SizedBox(height: 20.0),
+            _buildContactSection(context),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildCertificatesSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _buildTitleWithIcon("Certificates", Icons.assignment),
+        const SizedBox(height: 10.0),
+        ListTile(
+          leading: const Icon(
+            Icons.description,
+            color: Colors.black54,
+          ),
+          title: const Text(
+            "Check my Certificates",
+            style: TextStyle(fontSize: 18.0),
+          ),
+          onTap: () {
+            _navigateToCertificatesPage(context);
+          },
+        ),
+      ],
+    );
+  }
+
+  void _navigateToCertificatesPage(BuildContext context) {
+
+    Navigator.push(
+       context,
+       MaterialPageRoute(builder: (context) => CertificatePage()),
+     );
+  }
+
 
   Widget _buildContactSection(BuildContext context) {
     return Column(
@@ -237,7 +275,7 @@ class HomePage extends StatelessWidget {
     required String company,
     String? position,
     String? duration,
-    required List<String> imageUrls, // Add this parameter for image URL
+    required List<String> imageUrls,
     required BuildContext context,
   }) {
     return ListTile(
@@ -250,14 +288,13 @@ class HomePage extends StatelessWidget {
       ),
       subtitle: Text("$position ($duration)"),
       onTap: () {
-        // Navigate to ProjectImagesPage when an experience is clicked
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ProjectImagesPage(
               companyName: company,
               projectDescription: position ?? '',
-              imageUrls: imageUrls, // Pass the list of image URLs to ProjectImagesPage
+              imageUrls: imageUrls,
             ),
           ),
         );
@@ -336,7 +373,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10.0),
-            const Text("Full Stack Developer", style: TextStyle(fontSize: 16.0),),
+            const Text("Software Engineer", style: TextStyle(fontSize: 17.0),),
             const SizedBox(height: 5.0),
             InkWell(
               onTap: () {

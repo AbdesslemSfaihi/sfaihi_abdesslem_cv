@@ -4,10 +4,9 @@ import 'package:url_launcher/url_launcher.dart';
 class ContactPage extends StatelessWidget {
   const ContactPage({Key? key}) : super(key: key);
 
-  // Function to launch the default messaging app with a pre-filled message
   void _sendDirectMessage(BuildContext context) async {
-    const phoneNumber = '+21629348710'; // Your phone number
-    const message = 'Hello, I am contacting you through the app.'; // Pre-filled message
+    const phoneNumber = '+21629348710';
+    const message = 'Hello, I am contacting you through the app.';
     final Uri messageUri = Uri(
       scheme: 'sms',
       path: phoneNumber,

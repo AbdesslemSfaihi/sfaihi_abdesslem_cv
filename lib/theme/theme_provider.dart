@@ -19,7 +19,6 @@ class ThemeProvider with ChangeNotifier {
     } else {
       themeData = lightMode;
     }
-    // Navigate back to home page with pushReplacement
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => HomePage()),

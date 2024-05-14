@@ -6,7 +6,7 @@ class AnimatedBackground extends StatefulWidget {
   final int bubblesCount;
   final Color backgroundColor;
   final double bubbleSize;
-  final Color bubbleColor; // New parameter for bubble size
+  final Color bubbleColor;
 
   const AnimatedBackground({
     Key? key,
@@ -45,9 +45,9 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
           Random().nextDouble() * MediaQuery.of(context).size.width,
           Random().nextDouble() * MediaQuery.of(context).size.height,
         ),
-        radius: widget.bubbleSize, // Set the bubble size
+        radius: widget.bubbleSize,
         speed: Random().nextDouble() * 50 + 20,
-        borderColor: Colors.white, // Specify border color
+        borderColor: Colors.white,
       ),
     );
 
@@ -92,8 +92,8 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: bubble.borderColor, // Use border color
-                      width: 2, // Adjust border width as needed
+                      color: bubble.borderColor,
+                      width: 2,
                     ),
                   ),
                 ),
@@ -110,12 +110,12 @@ class Bubble {
   late Offset position;
   late double radius;
   late double speed;
-  late Color borderColor; // Add a border color parameter
+  late Color borderColor;
 
   Bubble({
     required this.position,
     required this.radius,
     required this.speed,
-    required this.borderColor, // Initialize border color
+    required this.borderColor,
   });
 }
